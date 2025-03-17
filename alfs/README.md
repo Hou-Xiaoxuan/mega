@@ -22,7 +22,6 @@ This is the directory where the LFS system will be built and the final disk imag
 ```bash
 # create a new image,at least 30G for image build, more for mega build & test.
 qemu-img create -f qcow2 vda.qcow2 100G
-```
 
 # enable nbd
 sudo modprobe nbd max_part=16
@@ -90,7 +89,7 @@ Run `sudo blkid` to get the UUID of the partitions, The Result should be like th
 /dev/nbd1p2: UUID="41686c57-192d-4ed8-87a2-7399482c0261" BLOCK_SIZE="4096" TYPE="ext4" PARTUUID="dfd4b6d0-02"
 ```
 
--   Edit `jhalfs/custom/config/1102-custom-config-fstab`
+-   Edit `jhalfs/custom/config/1101-custom-config-fstab`
 
 replace the UUID , the result should be like this:
 
@@ -119,10 +118,11 @@ The following options must be set:
 
 -   `BOOK Settings → [*] Add custom tools support (NEW)`
 -   `BOOK Settings → Init system/[*] Systemd (NEW)`
+-   set `BOOK Settings → Location of local copy (mandatory)` to absolute path of `mega/alfs/lfs-git` directory.
 -   `BOOK Settings → XML Source of Book/(X) Local Copy`
 -   `General Settings → [*] Run the makefile`
--   set `BOOK Settings  Location of local copy (mandatory)` to absolute path of `mega/alfs/lfs-git` directory.
 -   set `General Settings → Build directory` to your build directory, the value of `LFS_DIR` in the previous step.
+-   If you want to check the source code of the packages `General Settings → [*] Retrieve source files`
 -   `Build Settings → Parallelism settings → [*] Use all cores`
 -   If you building failuer first time, in the second should select `[*] Rebuild the Makefile (see help)`.
 
