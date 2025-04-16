@@ -17,9 +17,7 @@ done
 
 ( cat << "xEOFx"
 
-
-
-/usr/sbin/grub-install /dev/nbd1
+/usr/sbin/grub-install --target=i386-pc /dev/nbd1
 
 mkdir -p /boot/grub
 
